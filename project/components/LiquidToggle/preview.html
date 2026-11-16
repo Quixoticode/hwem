@@ -1,0 +1,13 @@
+<!-- @dsCard group="Controls" height=150 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Liquid Toggle — preview</title>
+<style>html,body{margin:0;} body{padding:20px;} </style></head>
+<body class="nl-root">
+<div class="nl-panel" style="max-width:320px">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:13px">Neural sync</span><button class="nl-toggle" role="switch" aria-checked="true" aria-label="Neural sync"><span class="nl-toggle-track"><span class="nl-toggle-thumb"></span></span></button></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0"><span style="font-size:13px">Dark protocol</span><button class="nl-toggle" role="switch" aria-checked="false" aria-label="Dark protocol"><span class="nl-toggle-track"><span class="nl-toggle-thumb"></span></span></button></div>
+</div>
+<script>document.querySelectorAll('[role=switch],[role=checkbox]').forEach(function(t){t.addEventListener('click',function(){t.setAttribute('aria-checked',t.getAttribute('aria-checked')==='true'?'false':'true');});});</script>
+</body>
+</html>

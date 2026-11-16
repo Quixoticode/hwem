@@ -1,0 +1,10 @@
+<!-- @dsCard group="Navigation" height=90 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Tab Bar — preview</title>
+<style>html,body{margin:0;} body{padding:20px;} </style></head>
+<body class="nl-root">
+<div class="nl-tabs" role="tablist"><button class="nl-tab" role="tab" aria-selected="true">Overview</button><button class="nl-tab" role="tab" aria-selected="false">Analytics</button><button class="nl-tab" role="tab" aria-selected="false">Agents</button><button class="nl-tab" role="tab" aria-selected="false">Settings</button></div>
+<script>document.querySelectorAll('.nl-tab').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.nl-tab').forEach(function(o){o.setAttribute('aria-selected',o===t);});});});</script>
+</body>
+</html>

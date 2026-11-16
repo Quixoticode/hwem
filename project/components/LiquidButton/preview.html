@@ -1,0 +1,16 @@
+<!-- @dsCard group="Actions" height=200 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Liquid Button — preview</title>
+<style>html,body{margin:0;} body{padding:20px;} </style></head>
+<body class="nl-root">
+<div class="nl-col">
+<div class="nl-row">
+<button class="nl-btn nl-btn--primary">Primary</button><button class="nl-btn nl-btn--secondary">Secondary</button><button class="nl-btn nl-btn--accent">Accent</button><button class="nl-btn nl-btn--success">Success</button><button class="nl-btn nl-btn--danger">Danger</button><button class="nl-btn nl-btn--ghost">Ghost</button>
+</div>
+<div class="nl-row">
+<button class="nl-btn nl-btn--primary nl-btn--xs">X-Small</button><button class="nl-btn nl-btn--primary nl-btn--sm">Small</button><button class="nl-btn nl-btn--primary">Medium</button><button class="nl-btn nl-btn--primary nl-btn--lg">Explore System <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button><button class="nl-btn nl-btn--primary" disabled>Disabled</button><button class="nl-btn nl-btn--primary"><span class="nl-spin"></span>Loading</button>
+</div></div>
+<script>document.querySelectorAll('.nl-btn').forEach(function(b){b.addEventListener('pointerdown',function(e){if(b.disabled)return;var r=b.getBoundingClientRect(),s=document.createElement('span');s.className='nl-ripple';s.style.left=(e.clientX-r.left)+'px';s.style.top=(e.clientY-r.top)+'px';b.appendChild(s);setTimeout(function(){s.remove();},760);});});</script>
+</body>
+</html>

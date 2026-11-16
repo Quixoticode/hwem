@@ -1,0 +1,14 @@
+<!-- @dsCard group="Controls" height=130 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Liquid Checkbox — preview</title>
+<style>html,body{margin:0;} body{padding:20px;} </style></head>
+<body class="nl-root">
+<div class="nl-col" style="gap:14px">
+<button class="nl-check" role="checkbox" aria-checked="true"><span class="nl-check-box" style="color:var(--primary)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Enable telemetry layer</button>
+<button class="nl-check" role="checkbox" aria-checked="false"><span class="nl-check-box" style="color:var(--primary)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Cross-agent memory sharing</button>
+<button class="nl-check" role="checkbox" aria-checked="true"><span class="nl-check-box" style="color:var(--primary)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Real-time inference mode</button>
+</div>
+<script>document.querySelectorAll('[role=switch],[role=checkbox]').forEach(function(t){t.addEventListener('click',function(){t.setAttribute('aria-checked',t.getAttribute('aria-checked')==='true'?'false':'true');});});</script>
+</body>
+</html>

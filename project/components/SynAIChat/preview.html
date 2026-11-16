@@ -1,0 +1,33 @@
+<!-- @dsCard group="SynAI" height=560 -->
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>SynAI Chat — preview</title>
+<style>html,body{margin:0;} body{padding:20px;} </style></head>
+<body class="nl-root">
+<div class="nl-chat" style="max-width:560px">
+<div class="nl-chat-head"><div class="nl-avatar"><svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><defs><linearGradient id="a0" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:var(--primary)"/><stop offset="100%" style="stop-color:var(--secondary)"/></linearGradient></defs><path d="M18,18 Q50,50 82,82 M18,82 Q50,50 82,18" stroke="url(#a0)" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="50" cy="50" r="9" style="fill:var(--bg)" stroke="url(#a0)" stroke-width="4.5"/></svg></div><div style="flex:1"><div class="nl-chat-name">SynAI</div><div class="nl-chat-status"><i></i>Neural core active · 99.9% uptime</div></div><div class="nl-chat-tools"><button aria-label="Expand"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg></button><button aria-label="Close"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div></div>
+<div class="nl-chat-log" id="log">
+<div class="nl-msg"><div class="nl-avatar"><svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true"><defs><linearGradient id="a1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:var(--primary)"/><stop offset="100%" style="stop-color:var(--secondary)"/></linearGradient></defs><path d="M18,18 Q50,50 82,82 M18,82 Q50,50 82,18" stroke="url(#a1)" stroke-width="7" stroke-linecap="round" fill="none"/><circle cx="50" cy="50" r="9" style="fill:var(--bg)" stroke="url(#a1)" stroke-width="4.5"/></svg></div><div class="nl-bubble">Hey! I'm SynAI — your neural intelligence layer. I monitor your agents, analyze patterns, and optimize performance in real time. What would you like to explore today?</div></div>
+</div>
+<div class="nl-chat-suggest" id="sug"><button class="nl-chip">Analyze system performance</button><button class="nl-chip">Show agent status</button><button class="nl-chip">Optimize bandwidth</button><button class="nl-chip">Run diagnostics</button></div>
+<div class="nl-chat-compose"><input id="in" type="text" placeholder="Message SynAI…" aria-label="Message SynAI"><button class="nl-btn nl-btn--primary nl-btn--sm" id="go" aria-label="Send"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button></div>
+</div>
+<script>
+var R=["I've analyzed 847 active sessions across your cortex layer. Three anomalies detected:\n\n→ **Sync drift** at 14:23 UTC — 40ms latency spike\n→ **Memory fragmentation** in agents #4 and #7\n→ **Neural bandwidth** at 94% during peak load\n\nInitiating auto-repair protocol. Estimated completion: 2 minutes.","Understood. I'll schedule a defrag cycle for tonight at 02:00 UTC when traffic is at its lowest — roughly 12% of peak load.","Your neural network is operating at 99.7% efficiency. No action required — I'll continue monitoring."],ri=0;
+var L=["Analyzing neural patterns…","Processing your request…","Searching knowledge base…","Generating response…"];
+var log=document.getElementById('log'),inp=document.getElementById('in'),busy=false;
+var AV=document.querySelector('.nl-avatar').innerHTML;
+function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function fmt(t){return esc(t).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');}
+function add(html,user){var d=document.createElement('div');d.className='nl-msg'+(user?' nl-msg--user':'');d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight;return d;}
+function send(){var t=inp.value.trim();if(!t||busy)return;busy=true;inp.value='';document.getElementById('sug').style.display='none';
+ add('<div class="nl-avatar nl-avatar--user">U</div><div class="nl-bubble">'+esc(t)+'</div>',true);
+ var th=add('<div class="nl-avatar is-thinking">'+AV+'</div><div class="nl-bubble nl-thinking"><div class="nl-grid">'+[0,1,2,3,4,5,6,7].map(function(i){return '<i style="animation-delay:'+(i*.1)+'s"></i>';}).join('')+'</div><p class="nl-think-label">'+L[0]+'</p></div>');
+ var li=0,iv=setInterval(function(){li=(li+1)%4;th.querySelector('.nl-think-label').textContent=L[li];},1200);
+ setTimeout(function(){clearInterval(iv);th.remove();var txt=R[ri++%R.length];var m=add('<div class="nl-avatar">'+AV+'</div><div class="nl-bubble"></div>');var b=m.querySelector('.nl-bubble'),i=0;
+  var s=setInterval(function(){i++;b.innerHTML=fmt(txt.slice(0,i))+(i<txt.length?'<span class="nl-caret"></span>':'');log.scrollTop=log.scrollHeight;if(i>=txt.length){clearInterval(s);busy=false;}},18);},1800+Math.random()*1200);}
+document.getElementById('go').onclick=send;inp.onkeydown=function(e){if(e.key==='Enter')send();};
+document.querySelectorAll('#sug .nl-chip').forEach(function(c){c.onclick=function(){inp.value=c.textContent;inp.focus();};});
+</script>
+</body>
+</html>
